@@ -6,6 +6,7 @@ import 'package:fitgo_flutter/screen/Route.dart';
 import 'package:fitgo_flutter/screen/home/HomePage.dart';
 import 'package:fitgo_flutter/widgets/Dialogs.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -28,6 +29,10 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    //   statusBarColor: Colors.transparent,
+    // ));
 
     final logo = Container(
       padding: EdgeInsets.all(50.0),
@@ -93,7 +98,6 @@ class _LoginPageState extends State<LoginPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: 50.0),
                 logo,
                 SizedBox(height: 10.0),
                 email,
@@ -178,12 +182,15 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     checkLogin();
+
+
     super.initState();
   }
 
   @override
   void dispose() {
     super.dispose();
+
   }
 
 }
